@@ -51,10 +51,6 @@ end
 describe "#my_transpose" do
   let(:rows)  { [[0, 1, 2], [3, 4, 5], [6, 7, 8]] }
 
-  it "should maintain the same set of elements" do
-    expect(rows.my_transpose.flatten.sort).to eq(rows.flatten.sort)
-  end
-
   it "transposes the array" do
     cols = [
       [0, 3, 6],
