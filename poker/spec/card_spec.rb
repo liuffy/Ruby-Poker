@@ -30,5 +30,3 @@ describe Card do
     end
   end
 end
-
-# add test for invalid suits or values

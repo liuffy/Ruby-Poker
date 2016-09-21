@@ -13,6 +13,14 @@ describe Deck do
     it "should contain no duplicate cards" do
       expect(deck.cards.length).to eq(deck.cards.uniq.length)
     end
+
+    it "should contain correct amounts of cards of a suit" do
+      SUITS = [:♠, :♥, :♦, :♣]
+      VALUES = [:A, :K, :Q, :J, 10, 9, 8, 7, 6, 5, 4, 3, 2]
+
+      expect(deck.include?(VALUES[rand(VALUES.size)],
+       SUITS[rand(SUITS.size)])).to be true
+    end
   end
 
   describe "#shuffle!" do
@@ -43,6 +51,3 @@ describe Deck do
 
   end
 end
-
-#randomly pick 
-#test for correct amounts of a certain type

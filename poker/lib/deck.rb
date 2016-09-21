@@ -1,7 +1,7 @@
 require_relative 'card'
 
 class Deck
-  
+
   attr_reader :cards
   SUITS = [:♠, :♥, :♦, :♣]
   VALUES = [:A, :K, :Q, :J, 10, 9, 8, 7, 6, 5, 4, 3, 2]
@@ -18,6 +18,10 @@ class Deck
 
   def draw!
     @cards.pop
+  end
+
+  def include?(value, suit)
+    @cards.any? {|card| card.value == value && card.suit == suit}
   end
 
   private
