@@ -1,12 +1,12 @@
 require 'rspec'
-require 'towersofhanoi'
+require 'towers_of_hanoi'
 
 describe TowersOfHanoi do
   let(:game) { TowersOfHanoi.new}
 
   describe "#initialize" do
     it "initialize the towers" do
-      expect(game.towers).to eq([3,2,1],[],[])
+      expect(game.towers).to eq([[3,2,1],[],[]])
     end
   end
 
@@ -22,6 +22,15 @@ describe TowersOfHanoi do
     it "should stack disc on to_tower" do
       expect(game.towers[1]).to eq([1])
     end
+
+    it "should raise error if from tower doesn't exist" do
+      expect{ game.move(3,1) }.to raise_error("from tower doesn't exist!")
+    end
+
+    it "should raise error if to tower doesn't exist" do
+      expect{ game.move(1,3) }.to raise_error("to tower doesn't exist!")
+    end
+
 
     it "should raise error when attempt to move disk from empty tower" do
       expect{game.move(2,0)}.to raise_error("No disk to move!")
@@ -47,4 +56,5 @@ describe TowersOfHanoi do
       game.towers = [[],[3,2,1],[]]
       expect(game.won?).to eq(true)
     end
+  end
 end
