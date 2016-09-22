@@ -9,8 +9,8 @@ describe Player do
       expect(player.pot).to eq(1000)
     end
 
-    it "should have an empty hand" do
-      expect(player.hand).to be_empty
+    it "should have a hand" do
+      expect(player.hand.is_a?(Hand)).to eq(true)
     end
 
     it "should have a name" do
